@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:textureTest/textureTest.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:shadertest/shadertest.xcodeproj">
    </FileRef>
    <FileRef

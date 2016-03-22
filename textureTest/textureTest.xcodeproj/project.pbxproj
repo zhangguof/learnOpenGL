@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EAF4EB601CA1A5A0006ED44C /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAF4EB5E1CA1A5A0006ED44C /* texture.cpp */; };
+		EAF4EB631CA1A6A4006ED44C /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAF4EB611CA1A6A4006ED44C /* shader.cpp */; };
+		EAF4EB6C1CA1A6BD006ED44C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF4EB641CA1A6BD006ED44C /* Cocoa.framework */; };
+		EAF4EB6D1CA1A6BD006ED44C /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF4EB651CA1A6BD006ED44C /* IOKit.framework */; };
+		EAF4EB6E1CA1A6BD006ED44C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF4EB661CA1A6BD006ED44C /* CoreVideo.framework */; };
+		EAF4EB6F1CA1A6BD006ED44C /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF4EB671CA1A6BD006ED44C /* CoreFoundation.framework */; };
+		EAF4EB701CA1A6BD006ED44C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF4EB681CA1A6BD006ED44C /* OpenGL.framework */; };
+		EAF4EB711CA1A6BD006ED44C /* libglew.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF4EB691CA1A6BD006ED44C /* libglew.a */; };
+		EAF4EB721CA1A6BD006ED44C /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF4EB6A1CA1A6BD006ED44C /* libglfw3.a */; };
+		EAF4EB741CA1A6D1006ED44C /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF4EB731CA1A6D1006ED44C /* libSOIL.a */; };
+		EAF4EB761CA1A7F9006ED44C /* shader in Resources */ = {isa = PBXBuildFile; fileRef = EAF4EB751CA1A7F9006ED44C /* shader */; };
+		EAF4EB781CA1A90D006ED44C /* wall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAF4EB771CA1A90D006ED44C /* wall.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EAF4EB4A1CA1A576006ED44C /* textureTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = textureTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF4EB581CA1A576006ED44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF4EB5E1CA1A5A0006ED44C /* texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = texture.cpp; sourceTree = "<group>"; };
+		EAF4EB5F1CA1A5A0006ED44C /* texture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = texture.hpp; sourceTree = "<group>"; };
+		EAF4EB611CA1A6A4006ED44C /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
+		EAF4EB621CA1A6A4006ED44C /* shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
+		EAF4EB641CA1A6BD006ED44C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		EAF4EB651CA1A6BD006ED44C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		EAF4EB661CA1A6BD006ED44C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
+		EAF4EB671CA1A6BD006ED44C /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		EAF4EB681CA1A6BD006ED44C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		EAF4EB691CA1A6BD006ED44C /* libglew.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglew.a; path = ../../libs/libglew.a; sourceTree = "<group>"; };
+		EAF4EB6A1CA1A6BD006ED44C /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../libs/libglfw3.a; sourceTree = "<group>"; };
+		EAF4EB731CA1A6D1006ED44C /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libSOIL.a; sourceTree = "<absolute>"; };
+		EAF4EB751CA1A7F9006ED44C /* shader */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shader; sourceTree = "<group>"; };
+		EAF4EB771CA1A90D006ED44C /* wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAF4EB471CA1A576006ED44C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF4EB6F1CA1A6BD006ED44C /* CoreFoundation.framework in Frameworks */,
+				EAF4EB721CA1A6BD006ED44C /* libglfw3.a in Frameworks */,
+				EAF4EB6C1CA1A6BD006ED44C /* Cocoa.framework in Frameworks */,
+				EAF4EB711CA1A6BD006ED44C /* libglew.a in Frameworks */,
+				EAF4EB6D1CA1A6BD006ED44C /* IOKit.framework in Frameworks */,
+				EAF4EB701CA1A6BD006ED44C /* OpenGL.framework in Frameworks */,
+				EAF4EB741CA1A6D1006ED44C /* libSOIL.a in Frameworks */,
+				EAF4EB6E1CA1A6BD006ED44C /* CoreVideo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAF4EB411CA1A576006ED44C = {
+			isa = PBXGroup;
+			children = (
+				EAF4EB6B1CA1A6BD006ED44C /* Frameworks */,
+				EAF4EB4C1CA1A576006ED44C /* textureTest */,
+				EAF4EB4B1CA1A576006ED44C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAF4EB4B1CA1A576006ED44C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAF4EB4A1CA1A576006ED44C /* textureTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAF4EB4C1CA1A576006ED44C /* textureTest */ = {
+			isa = PBXGroup;
+			children = (
+				EAF4EB771CA1A90D006ED44C /* wall.jpg */,
+				EAF4EB751CA1A7F9006ED44C /* shader */,
+				EAF4EB581CA1A576006ED44C /* Info.plist */,
+				EAF4EB501CA1A576006ED44C /* Supporting Files */,
+			);
+			path = textureTest;
+			sourceTree = "<group>";
+		};
+		EAF4EB501CA1A576006ED44C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAF4EB611CA1A6A4006ED44C /* shader.cpp */,
+				EAF4EB621CA1A6A4006ED44C /* shader.hpp */,
+				EAF4EB5E1CA1A5A0006ED44C /* texture.cpp */,
+				EAF4EB5F1CA1A5A0006ED44C /* texture.hpp */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAF4EB6B1CA1A6BD006ED44C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAF4EB641CA1A6BD006ED44C /* Cocoa.framework */,
+				EAF4EB651CA1A6BD006ED44C /* IOKit.framework */,
+				EAF4EB661CA1A6BD006ED44C /* CoreVideo.framework */,
+				EAF4EB671CA1A6BD006ED44C /* CoreFoundation.framework */,
+				EAF4EB681CA1A6BD006ED44C /* OpenGL.framework */,
+				EAF4EB691CA1A6BD006ED44C /* libglew.a */,
+				EAF4EB731CA1A6D1006ED44C /* libSOIL.a */,
+				EAF4EB6A1CA1A6BD006ED44C /* libglfw3.a */,
+			);
+			name = Frameworks;
+			path = /Users/tony/workspace/xcodeProject/learnOpenGL/shadertest/../firstTriangle/firstTriangle;
+			sourceTree = "<absolute>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAF4EB491CA1A576006ED44C /* textureTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAF4EB5B1CA1A576006ED44C /* Build configuration list for PBXNativeTarget "textureTest" */;
+			buildPhases = (
+				EAF4EB461CA1A576006ED44C /* Sources */,
+				EAF4EB471CA1A576006ED44C /* Frameworks */,
+				EAF4EB481CA1A576006ED44C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = textureTest;
+			productName = textureTest;
+			productReference = EAF4EB4A1CA1A576006ED44C /* textureTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAF4EB421CA1A576006ED44C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = tony;
+				TargetAttributes = {
+					EAF4EB491CA1A576006ED44C = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = EAF4EB451CA1A576006ED44C /* Build configuration list for PBXProject "textureTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAF4EB411CA1A576006ED44C;
+			productRefGroup = EAF4EB4B1CA1A576006ED44C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAF4EB491CA1A576006ED44C /* textureTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAF4EB481CA1A576006ED44C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF4EB761CA1A7F9006ED44C /* shader in Resources */,
+				EAF4EB781CA1A90D006ED44C /* wall.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAF4EB461CA1A576006ED44C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAF4EB631CA1A6A4006ED44C /* shader.cpp in Sources */,
+				EAF4EB601CA1A5A0006ED44C /* texture.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EAF4EB591CA1A576006ED44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EAF4EB5A1CA1A576006ED44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EAF4EB5C1CA1A576006ED44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../include";
+				INFOPLIST_FILE = textureTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../libs";
+				PRODUCT_BUNDLE_IDENTIFIER = zhang.textureTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EAF4EB5D1CA1A576006ED44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../include";
+				INFOPLIST_FILE = textureTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../libs";
+				PRODUCT_BUNDLE_IDENTIFIER = zhang.textureTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAF4EB451CA1A576006ED44C /* Build configuration list for PBXProject "textureTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF4EB591CA1A576006ED44C /* Debug */,
+				EAF4EB5A1CA1A576006ED44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF4EB5B1CA1A576006ED44C /* Build configuration list for PBXNativeTarget "textureTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAF4EB5C1CA1A576006ED44C /* Debug */,
+				EAF4EB5D1CA1A576006ED44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAF4EB421CA1A576006ED44C /* Project object */;
+}
