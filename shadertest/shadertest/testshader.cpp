@@ -26,7 +26,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 }
 
 
-GLuint VAO,VBO;
+GLuint VAO[2],VBO[2];
 Shader *pshader;
 
 void gen_vao_vbo(GLuint *vao, GLuint *vbo, GLfloat vertices[],size_t size)
@@ -46,6 +46,27 @@ void gen_vao_vbo(GLuint *vao, GLuint *vbo, GLfloat vertices[],size_t size)
     glBindVertexArray(0);
     
 }
+void gen_vao_vbo_color(GLuint *vao, GLuint *vbo, GLfloat vertices[],size_t size)
+{
+    glGenVertexArrays(1,vao);
+    glGenBuffers(1, vbo);
+    
+    glBindVertexArray(*vao);
+    
+    glBindBuffer(GL_ARRAY_BUFFER, *vbo);
+    glBufferData(GL_ARRAY_BUFFER,size, vertices, GL_STATIC_DRAW);
+    
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat),(GLvoid *)0);
+    glEnableVertexAttribArray(0);
+    
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6*sizeof(GLfloat),
+                          (GLvoid *)(3*sizeof(GL_FLOAT)));
+    glEnableVertexAttribArray(1);
+    
+    glBindBuffer(GL_ARRAY_BUFFER,0);
+    glBindVertexArray(0);
+    
+}
 
 void init_render(GLuint *vao, GLuint *vbo)
 {
@@ -55,10 +76,17 @@ void init_render(GLuint *vao, GLuint *vbo)
         0.5f, -0.5f, 0.0f,  // 右下角
         -0.5f, 0.5f, 0.0f,  // 左上角
     };
+    GLfloat vertices2[]={
+        // 第二个三角形       //color
+        0.5f, -0.5f, 0.0f,  1.0f,0.0f,0.0f,  // 右下角
+        -0.5f, -0.5f, 0.0f, 0.0f,1.0f,0.0f, // 左下角
+        -0.5f, 0.5f, 0.0f,  0.0f,0.0f,1.0f,   // 左上角
+    };
 
     
     
     gen_vao_vbo(vao, vbo, vertices,sizeof(vertices));
+    gen_vao_vbo_color(&vao[1],&vbo[1], vertices2,sizeof(vertices2));
     
 }
 
@@ -93,8 +121,9 @@ int main(int argc, char **argv)
     glewInit();
 
     
-    init_render(&VAO, &VBO);
+    init_render(VAO, VBO);
     pshader = new Shader("shader/vertex.glsl","shader/fragment.glsl");
+    Shader shader2("shader/vertex2.glsl","shader/fragment2.glsl");
     
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
@@ -111,7 +140,12 @@ int main(int argc, char **argv)
         
         pshader->Use();
         glUniform4f(vertexColorLocation,0.0f,greenValue,0.0f,1.0f);
-        glBindVertexArray(VAO);
+        glBindVertexArray(VAO[0]);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glBindVertexArray(0);
+        
+        shader2.Use();
+        glBindVertexArray(VAO[1]);
         glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindVertexArray(0);
         
@@ -119,8 +153,8 @@ int main(int argc, char **argv)
         glfwSwapBuffers(window);
     }
     
-    glDeleteVertexArrays(1,&VAO);
-    glDeleteBuffers(1,&VBO);
+    glDeleteVertexArrays(1,VAO);
+    glDeleteBuffers(1,VBO);
     
     
     
