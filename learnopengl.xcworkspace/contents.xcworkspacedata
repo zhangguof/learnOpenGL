@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:gltools/gltools.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:transform/transform.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:textureTest/textureTest.xcodeproj">
    </FileRef>
    <FileRef
