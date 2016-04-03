@@ -66,7 +66,7 @@ void gen_vao_vbo_color_texture(GLuint *vao, GLuint *vbo, GLfloat vertices[],size
                           (GLvoid *)(3*sizeof(GL_FLOAT)));
     glEnableVertexAttribArray(1);
     
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8*sizeof(GLfloat),
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8*sizeof(GLfloat),
                           (GLvoid *)(6*sizeof(GL_FLOAT)));
     glEnableVertexAttribArray(2);
     
