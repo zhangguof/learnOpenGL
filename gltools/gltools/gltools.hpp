@@ -14,6 +14,10 @@
 #include <GLFW/glfw3.h>
 #include <SOIL.h>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include "shader.hpp"
 
 GLFWwindow* create_window(int width, int height,
