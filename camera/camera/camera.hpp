@@ -14,6 +14,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <cmath>
+
 enum Camera_MOVE{
     FORWARD,
     BACKWARD,
@@ -53,12 +55,12 @@ public:
         Yaw = yaw;
         Pitch = pitch;
         
-        printf("pos:%f,%f,%f\n",Postion.x,Postion.y,Postion.z);
+        //printf("pos:%f,%f,%f\n",Postion.x,Postion.y,Postion.z);
         UpdateCamera();
-        printf("pos:%f,%f,%f\n",Postion.x,Postion.y,Postion.z);
-        printf("yaw:%f,pitch:%f\n",Yaw,Pitch);
-        printf("up:%f,%f,%f\n",Up.x,Up.y,Up.z);
-        printf("front:%f,%f,%f\n",Front.x,Front.y,Front.z);
+//        printf("pos:%f,%f,%f\n",Postion.x,Postion.y,Postion.z);
+//        printf("yaw:%f,pitch:%f\n",Yaw,Pitch);
+//        printf("up:%f,%f,%f\n",Up.x,Up.y,Up.z);
+//        printf("front:%f,%f,%f\n",Front.x,Front.y,Front.z);
 
         
         
@@ -92,9 +94,10 @@ public:
             Postion += Right * velocity;
     }
     
-    void ProecessMouseMove(GLfloat xoffest, GLfloat yoffest,
+    void ProcessMouseMove(GLfloat xoffest, GLfloat yoffest,
                            GLboolean constrainPitch = true)
     {
+        
         xoffest *= MouseSensitivity;
         yoffest *= MouseSensitivity;
         
@@ -110,6 +113,22 @@ public:
         
     }
     
+    void ProcessCameraMove(GLfloat xoffest, GLfloat yoffest, GLfloat delta)
+    {
+        GLfloat velocity = MoveSpeed * delta;
+        xoffest *= velocity;
+        yoffest *= velocity;
+        if(abs(xoffest)<0.001)
+            xoffest = 0;
+        if(abs(yoffest)<0.001)
+            yoffest = 0;
+        Postion.x += xoffest;
+        Postion.y += yoffest;
+        
+        UpdateCamera();
+        
+    }
+    
     void ProcessMouseScrool(GLfloat yoffest)
     {
         Zoom -= yoffest;
@@ -119,7 +138,7 @@ public:
             Zoom = 45.0f;
     }
     
-private:
+//private:
     void UpdateCamera()
     {
         glm::vec3 front;

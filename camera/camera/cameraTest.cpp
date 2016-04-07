@@ -15,10 +15,10 @@
 
 const int win_width=640,win_height=480;
 
-const int min_fov=1.0f,max_fov = 60.0f;
-
 int last_x = win_width/2;
 int last_y = win_height/2;
+
+int mouse_xoffest,mouse_yoffest;
 
 
 
@@ -31,7 +31,9 @@ bool firstMouse = true;
 int enter_window = 0;
 
 bool keys[1024];
-bool mouse_left_key = false;
+vector<bool> mouse_keys(10,false);
+
+
 
 //fps
 GLfloat deltaTime = 0.0f;
@@ -51,33 +53,13 @@ void do_movemen(GLfloat delta,GLfloat time){
         g_camera.ProcessKeyboard(LEFT, delta);
     if(keys[GLFW_KEY_D])
         g_camera.ProcessKeyboard(RIGHT, delta);
+    
+    if(enter_window){
+        if(mouse_keys[GLFW_MOUSE_BUTTON_LEFT])
+            g_camera.ProcessCameraMove(mouse_xoffest, mouse_yoffest,delta);
+    }
 
 }
-typedef void(* update_func_type)(GLfloat,GLfloat);
-
-class UpdateMgr{
-    vector<update_func_type> funcs;
-public:
-    void push(update_func_type f){
-        funcs.push_back(f);
-    }
-    void update(GLfloat delta,GLfloat time){
-        unsigned int size = funcs.size();
-        for(int i=0;i < size;i++){
-            funcs[i](delta,time);
-        }
-    }
-    
-};
-UpdateMgr update_mgr;
-
-
-
-void update(GLfloat delta,GLfloat time){
-    
-}
-
-
 
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -96,8 +78,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 static void mouse_callback(GLFWwindow * win, double posx,double posy)
 {
-    if(!enter_window)
-        return;
+ 
     
     if(firstMouse)
     {
@@ -106,22 +87,30 @@ static void mouse_callback(GLFWwindow * win, double posx,double posy)
         firstMouse = false;
     }
     
+    
+    
     GLfloat xoffest = posx - last_x;
     GLfloat yoffest =last_y - posy;
     last_x = posx;
     last_y = posy;
     
-    g_camera.ProecessMouseMove(xoffest, yoffest);
+    if(enter_window)
+    {
+        mouse_xoffest = xoffest;
+        mouse_yoffest = yoffest;
+        if(mouse_keys[GLFW_MOUSE_BUTTON_RIGHT])
+            g_camera.ProcessMouseMove(xoffest, yoffest);
+
+    }
+    
     
  }
 static void mouse_click_callbakc(GLFWwindow* window, int button, int action, int mods){
-    if(button==GLFW_MOUSE_BUTTON_LEFT && action==GLFW_PRESS){
-        printf("ddd\n");
-        mouse_left_key = true;
+    if(action==GLFW_PRESS){
+        mouse_keys[button] = true;
     }
-    if(button==GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE){
-        printf("release..\n");
-        mouse_left_key = false;
+    if(action == GLFW_RELEASE){
+        mouse_keys[button] = false;
     }
 }
 
@@ -134,6 +123,18 @@ void scroll_callback(GLFWwindow* win, double xoffest, double yoffest)
 void cursor_enter_callback(GLFWwindow* window, int entered)
 {
     enter_window = entered;
+}
+
+
+void init_callback(GLFWwindow* window){
+    glfwSetErrorCallback(error_callback);
+    glfwSetKeyCallback(window, key_callback);
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_callback);
+    glfwSetMouseButtonCallback(window, mouse_click_callbakc);
+    glfwSetCursorEnterCallback(window, cursor_enter_callback);
+    
 }
 
 
@@ -217,6 +218,24 @@ void init_render()
     
 }
 
+typedef void(* update_func_type)(GLfloat,GLfloat);
+
+class UpdateMgr{
+    vector<update_func_type> funcs;
+public:
+    void push(update_func_type f){
+        funcs.push_back(f);
+    }
+    void update(GLfloat delta,GLfloat time){
+        unsigned int size = funcs.size();
+        for(int i=0;i < size;i++){
+            funcs[i](delta,time);
+        }
+    }
+    
+};
+UpdateMgr update_mgr;
+
 
 
 
@@ -226,16 +245,12 @@ int main(int argc, char **argv)
     printf("start opengl\n");
     
     
-    glfwSetErrorCallback(error_callback);
     GLFWwindow* window = create_window(win_width,win_height,
                                        "3Dexample");
     
-    glfwSetKeyCallback(window, key_callback);
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-    glfwSetCursorPosCallback(window, mouse_callback);
-    glfwSetScrollCallback(window, scroll_callback);
-    glfwSetMouseButtonCallback(window, mouse_click_callbakc);
-    glfwSetCursorEnterCallback(window, cursor_enter_callback);
+    init_callback(window);
+    
+
     
     init_render();
     pshader = new Shader("shader/vertex.glsl","shader/fragment.glsl");
@@ -314,7 +329,6 @@ int main(int argc, char **argv)
         
         
         glUniformMatrix4fv(projection_loc,1,GL_FALSE,glm::value_ptr(projection));
-        
         
         
         vao->enable();
