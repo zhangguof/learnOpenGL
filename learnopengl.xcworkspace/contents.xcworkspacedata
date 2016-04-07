@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:lighting/lighting.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:camera/camera.xcodeproj">
    </FileRef>
    <FileRef
