@@ -11,7 +11,7 @@
 #include "camera.hpp"
 #include <vector>
 
-const int win_width=640,win_height=480;
+const int win_width=800,win_height=600;
 
 
 int last_x = win_width/2;
@@ -21,7 +21,7 @@ int mouse_xoffest,mouse_yoffest;
 
 
 
-glm::vec3 cam_pos   = glm::vec3(0.0f, 0.0f,6.0f);
+glm::vec3 cam_pos   = glm::vec3(0.0f, 0.0f,3.0f);
 
 
 Camera g_camera(cam_pos);
@@ -149,62 +149,63 @@ Shader *plightshader;
 void init_render()
 {
     GLfloat vertices[] = {
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-        0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+        0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+        0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+        0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
         
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+        0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+        0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+        0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
         
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+        -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+        -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
         
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+        0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+        0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+        0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+        0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+        0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
         
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+        0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+        0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+        0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
         
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+        0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+        0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+        0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
     };
     
     
     
     vao = new VAO();
-    vbo = new VBO(vertices,36,GL_STATIC_DRAW,GL_FALSE,GL_TRUE);
+    vbo = new VBO(vertices,36,GL_STATIC_DRAW,GL_FALSE,GL_FALSE,GL_TRUE);
     //ebo = new EBO(indices,6);
     vao->add_vbo(*vbo);
-    vao->enable();
-    //ebo->enable();
-    vao->disable();
+//    vao->enable();
+//    //ebo->enable();
+//    vao->disable();
     
     light_vao = new VAO();
-    //light_vbo = new VBO(vertices,36,GL_STATIC_DRAW,GL_FALSE,GL_TRUE);
+    //light_vbo = new VBO(vertices,36,GL_STATIC_DRAW,GL_FALSE,GL_TRUE,GL_TRUE);
     light_vao->add_vbo(*vbo);
+    
 }
 
 typedef void(* update_func_type)(GLfloat,GLfloat);
@@ -230,23 +231,15 @@ void update_matrix(Shader *ps,glm::mat4 &model,glm::mat4 &view,
                    glm::mat4 &projection)
 {
     //matrix
-    GLuint model_loc = glGetUniformLocation(pshader->Program,"model");
-    GLuint view_loc = glGetUniformLocation(pshader->Program,"view");
-    GLuint projection_loc = glGetUniformLocation(pshader->Program,"projection");
-    
-    
-    glUniformMatrix4fv(model_loc,1,GL_FALSE,glm::value_ptr(model));
-    glUniformMatrix4fv(view_loc,1,GL_FALSE,glm::value_ptr(view));
-    glUniformMatrix4fv(projection_loc,1,GL_FALSE,glm::value_ptr(projection));
+    ps->setUniformMatrix4fv("model", glm::value_ptr(model));
     
     view = g_camera.GetViewMatrix();
-    glUniformMatrix4fv(view_loc,1,GL_FALSE,glm::value_ptr(view));
+    ps->setUniformMatrix4fv("view", glm::value_ptr(view));
     
     projection = glm::perspective(glm::radians(g_camera.Zoom),
                                   (GLfloat)win_width/win_height,
                                   0.1f, 100.f);
-    
-    glUniformMatrix4fv(projection_loc,1,GL_FALSE,glm::value_ptr(projection));
+    ps->setUniformMatrix4fv("projection", glm::value_ptr(projection));
     
 }
 
@@ -274,9 +267,9 @@ int main(int argc, char **argv)
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     //texture
-    TEXTURE texture("res/container.jpg");
+    //TEXTURE texture("res/container.jpg");
     
-    TEXTURE texture2("res/awesomeface.png");
+    //TEXTURE texture2("res/awesomeface.png");
     
     //matrix
     
@@ -284,15 +277,16 @@ int main(int argc, char **argv)
     glm::mat4 view;
     glm::mat4 projection;
     
-    model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f,0.0f,0.0f));
+    //model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f,0.0f,0.0f));
     
     glm::mat4 light_model;
     glm::vec3 light_pos(1.2f,1.0f,2.0f);
+    //glm::vec3 light_pos(0.0f,1.0f,0.0f);
+    
     light_model = glm::translate(light_model, light_pos);
     light_model = glm::scale(light_model, glm::vec3(0.2f));
     
-    
-    
+
     
     update_mgr.push(do_movemen);
     
@@ -309,10 +303,11 @@ int main(int argc, char **argv)
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
         
-        texture.use(GL_TEXTURE0);
-        glUniform1i(glGetUniformLocation(pshader->Program,"ourTexture1"),0);
-        texture2.use(GL_TEXTURE1);
-        glUniform1i(glGetUniformLocation(pshader->Program,"ourTexture2"),1);
+//        texture.use(GL_TEXTURE0);
+//        glUniform1i(glGetUniformLocation(pshader->Program,"ourTexture1"),0);
+//        texture2.use(GL_TEXTURE1);
+//        glUniform1i(glGetUniformLocation(pshader->Program,"ourTexture2"),1);
+        
         
         
         
@@ -321,12 +316,10 @@ int main(int argc, char **argv)
         
         
         pshader->Use();
-        
         //color
-        GLuint objectColor_loc = glGetUniformLocation(pshader->Program,"objectColor");
-        GLuint lightColor_loc = glGetUniformLocation(pshader->Program,"lightColor");
-        glUniform3f(lightColor_loc,1.0f,1.0f,1.0f);
-        glUniform3f(objectColor_loc,1.0f,0.5f,0.31f);
+        pshader->setUniform3f("objectColor", 1.0f, 1.0f, 1.0f);
+        pshader->setUniform3f("lightColor", 1.0f, 0.5f, 0.31f);
+        pshader->setUniform3f("lightPos", light_pos.x, light_pos.y, light_pos.z);
         
         
         //matrix
@@ -343,6 +336,7 @@ int main(int argc, char **argv)
         //draw light
         plightshader->Use();
         update_matrix(plightshader,light_model,view,projection);
+        
         light_vao->enable();
         glDrawArrays(GL_TRIANGLES,0,36);
         light_vao->disable();

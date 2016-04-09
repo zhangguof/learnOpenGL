@@ -14,11 +14,12 @@
 		EAB6489D1CB55AE900EC4F24 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB648931CB55AE900EC4F24 /* CoreFoundation.framework */; };
 		EAB6489E1CB55AE900EC4F24 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB648941CB55AE900EC4F24 /* OpenGL.framework */; };
 		EAB6489F1CB55AE900EC4F24 /* libglew.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB648951CB55AE900EC4F24 /* libglew.a */; };
-		EAB648A01CB55AE900EC4F24 /* libgltool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB648961CB55AE900EC4F24 /* libgltool.a */; };
 		EAB648A11CB55AE900EC4F24 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB648971CB55AE900EC4F24 /* libSOIL.a */; };
 		EAB648A21CB55AE900EC4F24 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB648981CB55AE900EC4F24 /* libglfw3.a */; };
 		EAB648A41CB55BAF00EC4F24 /* shader in Resources */ = {isa = PBXBuildFile; fileRef = EAB648A31CB55BAF00EC4F24 /* shader */; };
 		EAB648A61CB55C2200EC4F24 /* res in Resources */ = {isa = PBXBuildFile; fileRef = EAB648A51CB55C2200EC4F24 /* res */; };
+		EAB648AF1CB8212300EC4F24 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAB648AE1CB8212300EC4F24 /* test.cpp */; };
+		EAB648B11CB956CC00EC4F24 /* libgltool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB648B01CB956CC00EC4F24 /* libgltool.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +33,12 @@
 		EAB648931CB55AE900EC4F24 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		EAB648941CB55AE900EC4F24 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		EAB648951CB55AE900EC4F24 /* libglew.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglew.a; path = ../../libs/libglew.a; sourceTree = "<group>"; };
-		EAB648961CB55AE900EC4F24 /* libgltool.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgltool.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libgltool.a; sourceTree = "<absolute>"; };
 		EAB648971CB55AE900EC4F24 /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libSOIL.a; sourceTree = "<absolute>"; };
 		EAB648981CB55AE900EC4F24 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../libs/libglfw3.a; sourceTree = "<group>"; };
 		EAB648A31CB55BAF00EC4F24 /* shader */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shader; sourceTree = "<group>"; };
 		EAB648A51CB55C2200EC4F24 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = /Users/tony/workspace/xcodeProject/learnOpenGL/camera/camera/../../res; sourceTree = "<absolute>"; };
-		EAB648A71CB6B7C000EC4F24 /* camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = camera.hpp; sourceTree = "<group>"; };
+		EAB648AE1CB8212300EC4F24 /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		EAB648B01CB956CC00EC4F24 /* libgltool.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgltool.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libgltool.a; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +47,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAB6489D1CB55AE900EC4F24 /* CoreFoundation.framework in Frameworks */,
-				EAB648A01CB55AE900EC4F24 /* libgltool.a in Frameworks */,
 				EAB6489A1CB55AE900EC4F24 /* Cocoa.framework in Frameworks */,
 				EAB6489F1CB55AE900EC4F24 /* libglew.a in Frameworks */,
 				EAB6489B1CB55AE900EC4F24 /* IOKit.framework in Frameworks */,
@@ -54,6 +54,7 @@
 				EAB648A11CB55AE900EC4F24 /* libSOIL.a in Frameworks */,
 				EAB6489C1CB55AE900EC4F24 /* CoreVideo.framework in Frameworks */,
 				EAB648A21CB55AE900EC4F24 /* libglfw3.a in Frameworks */,
+				EAB648B11CB956CC00EC4F24 /* libgltool.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,8 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				EAB6488D1CB55A9A00EC4F24 /* lighting.cpp */,
-				EAB648A71CB6B7C000EC4F24 /* camera.hpp */,
 				EAB6488E1CB55A9A00EC4F24 /* lighting.hpp */,
+				EAB648AE1CB8212300EC4F24 /* test.cpp */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -107,9 +108,9 @@
 				EAB648931CB55AE900EC4F24 /* CoreFoundation.framework */,
 				EAB648941CB55AE900EC4F24 /* OpenGL.framework */,
 				EAB648951CB55AE900EC4F24 /* libglew.a */,
-				EAB648961CB55AE900EC4F24 /* libgltool.a */,
 				EAB648971CB55AE900EC4F24 /* libSOIL.a */,
 				EAB648981CB55AE900EC4F24 /* libglfw3.a */,
+				EAB648B01CB956CC00EC4F24 /* libgltool.a */,
 			);
 			name = Frameworks;
 			path = /Users/tony/workspace/xcodeProject/learnOpenGL/shadertest/../firstTriangle/firstTriangle;
@@ -184,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB648AF1CB8212300EC4F24 /* test.cpp in Sources */,
 				EAB6488F1CB55A9A00EC4F24 /* lighting.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
