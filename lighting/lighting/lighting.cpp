@@ -22,6 +22,8 @@ int mouse_xoffest,mouse_yoffest;
 
 
 glm::vec3 cam_pos   = glm::vec3(0.0f, 0.0f,3.0f);
+glm::vec3 light_pos(1.2f,1.0f,2.0f);
+//glm::vec3 light_pos(0.0f,4.1f,0.0f);
 
 
 Camera g_camera(cam_pos);
@@ -146,6 +148,7 @@ VAO *light_vao;
 VBO *light_vbo;
 Shader *plightshader;
 
+
 void init_render()
 {
     GLfloat vertices[] = {
@@ -196,11 +199,16 @@ void init_render()
     
     vao = new VAO();
     vbo = new VBO(vertices,36,GL_STATIC_DRAW,GL_FALSE,GL_FALSE,GL_TRUE);
+    
+//    vao1 = new VAO();
+//    vbo1 = new VBO(vertices1,6,GL_STATIC_DRAW,GL_FALSE,GL_FALSE,GL_TRUE);
+    
     //ebo = new EBO(indices,6);
     vao->add_vbo(*vbo);
 //    vao->enable();
 //    //ebo->enable();
 //    vao->disable();
+    
     
     light_vao = new VAO();
     //light_vbo = new VBO(vertices,36,GL_STATIC_DRAW,GL_FALSE,GL_TRUE,GL_TRUE);
@@ -231,6 +239,7 @@ void update_matrix(Shader *ps,glm::mat4 &model,glm::mat4 &view,
                    glm::mat4 &projection)
 {
     //matrix
+    
     ps->setUniformMatrix4fv("model", glm::value_ptr(model));
     
     view = g_camera.GetViewMatrix();
@@ -278,13 +287,15 @@ int main(int argc, char **argv)
     glm::mat4 projection;
     
     //model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f,0.0f,0.0f));
+    //model = glm::scale(model, glm::vec3(4.0f,4.0f,4.0f));
     
     glm::mat4 light_model;
-    glm::vec3 light_pos(1.2f,1.0f,2.0f);
-    //glm::vec3 light_pos(0.0f,1.0f,0.0f);
     
-    light_model = glm::translate(light_model, light_pos);
-    light_model = glm::scale(light_model, glm::vec3(0.2f));
+     //glm::vec3 light_pos(0.0f,1.0f,0.0f);
+    //glm::vec3 light_pos(0.0f,1.0f,0.0f);
+    glm::mat4 imatirx;
+
+
     
 
     
@@ -310,16 +321,22 @@ int main(int argc, char **argv)
         
         
         
+        light_pos.x = 1.0f + sin(glfwGetTime()) * 2.0f;
+        light_pos.y = 1.0f + sin(glfwGetTime()) * 2.0f;
+//        printf("x:%f,y:%f,z:%f\n",light_pos.x,light_pos.y,light_pos.z);
+        light_model = glm::translate(imatirx, light_pos);
+        light_model = glm::scale(light_model, glm::vec3(0.2f));
         
-        
-        
+
         
         
         pshader->Use();
         //color
         pshader->setUniform3f("objectColor", 1.0f, 1.0f, 1.0f);
         pshader->setUniform3f("lightColor", 1.0f, 0.5f, 0.31f);
+        //pos
         pshader->setUniform3f("lightPos", light_pos.x, light_pos.y, light_pos.z);
+        pshader->setUniform3f("viewPos", cam_pos.x, cam_pos.y, cam_pos.z);
         
         
         //matrix
@@ -332,7 +349,7 @@ int main(int argc, char **argv)
         glDrawArrays(GL_TRIANGLES, 0, 36);
         //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         vao->disable();
-        
+
         //draw light
         plightshader->Use();
         update_matrix(plightshader,light_model,view,projection);
