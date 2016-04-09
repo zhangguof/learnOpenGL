@@ -25,14 +25,16 @@ GLFWwindow* create_window(int width, int height,
 
 const GLuint VBOCORlORIDX = 3;
 const GLuint VBOTEXCOORDIDX = 6;
-const GLuint POS_LOC = 0;
-const GLuint COL_LOC = 1;
-const GLuint TEX_LOC = 2;
+//const GLuint POS_LOC = 0;
+//const GLuint COL_LOC = 1;
+//const GLuint TEX_LOC = 2;
+//const GLuint NOR_LOC = 3;
 
 class VBO{
     GLuint vbo;
     GLboolean enableCorlor;
     GLboolean enableTexcoord;
+    GLboolean enableNormal;
     GLfloat *vertices;
     GLuint num;
     GLenum draw_usage;
@@ -40,10 +42,12 @@ class VBO{
 public:
     VBO(GLfloat verts[], GLuint n,GLenum usage=GL_STATIC_DRAW,
         GLboolean enable_corlor = GL_TRUE,
-        GLboolean enable_texcoord = GL_TRUE){
+        GLboolean enable_texcoord = GL_TRUE,
+        GLboolean enable_normal = GL_TRUE){
         
         enableCorlor = enable_corlor;
         enableTexcoord = enable_texcoord;
+        enableNormal = enable_normal;
         vertices = verts;
         draw_usage = usage;
         num = n;
@@ -54,6 +58,10 @@ public:
         }
         if(enableTexcoord){
             strip += 2;
+        }
+        if(enableNormal)
+        {
+            strip += 3;
         }
         
         glGenBuffers(1,&vbo);

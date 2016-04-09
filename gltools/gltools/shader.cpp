@@ -34,7 +34,6 @@ Shader::Shader(const GLchar *vertexSrcPath, const GLchar *fragmentSrcPaht){
     }
     const GLchar* vShaderCode = verCode.c_str();
     const GLchar* fShaderCode = fragCode.c_str();
-    
     GLuint vertex, fragment;
     GLint success;
     GLchar infolog[512];
@@ -81,3 +80,53 @@ void Shader::Use(){
     glUseProgram(this->Program);
     
 }
+
+GLint Shader::get_unifrom_loc(const char* var_name)
+{
+    GLint cur_program;
+    glGetIntegerv(GL_CURRENT_PROGRAM, &cur_program);
+    if(cur_program != Program)
+    {
+        cout<<"ERROR:CURRENT PROGRAM NOT ACTIVE!"<<endl;
+        return -2;
+    }
+    
+    auto loc_iter = uniform_locals.find(var_name);
+    GLint loc;
+    if(loc_iter != uniform_locals.end())
+    {
+        loc = loc_iter->second;
+        return loc;
+    }
+    else
+    {
+        loc = glGetUniformLocation(Program, var_name);
+        if (loc==-1)
+        {
+            cout<<"ERROR:GETUNIFORM:"<<var_name<<endl;
+            return loc;
+        }
+    }
+    uniform_locals[var_name] = loc;
+    return loc;
+}
+
+
+void Shader::setUniform3f(const char *var_name, GLfloat x, GLfloat y, GLfloat z)
+{
+    GLint loc = get_unifrom_loc(var_name);
+    if(loc < 0)
+        return;
+    glUniform3f(loc,x,y,z);
+    
+}
+void Shader::setUniformMatrix4fv(const char* var_name, const GLfloat * mat4)
+{
+    GLint loc = get_unifrom_loc(var_name);
+    if(loc >= 0)
+    {
+        glUniformMatrix4fv(loc, 1, GL_FALSE, mat4);
+    }
+    
+}
+

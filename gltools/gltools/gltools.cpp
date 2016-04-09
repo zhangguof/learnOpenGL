@@ -37,28 +37,43 @@ GLFWwindow* create_window(int width, int height,
 void VBO::bindVBO(){
     size_t size = sizeof(GLfloat) * num * strip;
     GLint v_att_offest = 0;
+    GLint uniform_loc = 0;
 
     
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER,size,vertices,draw_usage);
-    glVertexAttribPointer(POS_LOC, 3, GL_FLOAT, GL_FALSE,
-                          strip*sizeof(GL_FLOAT),(GLvoid *)v_att_offest);
-    glEnableVertexAttribArray(POS_LOC);
+    glVertexAttribPointer(uniform_loc, 3, GL_FLOAT, GL_FALSE,
+                          strip*sizeof(GL_FLOAT),(GLvoid *)0);
+    glEnableVertexAttribArray(uniform_loc);
     v_att_offest += 3;
+    uniform_loc++;
     
     if(enableCorlor){
-        glVertexAttribPointer(COL_LOC,3,GL_FLOAT, GL_FALSE,
+        glVertexAttribPointer(uniform_loc,3,GL_FLOAT, GL_FALSE,
                               strip*sizeof(GL_FLOAT),
                               (GLvoid *)(v_att_offest * sizeof(GLfloat)));
-        glEnableVertexAttribArray(COL_LOC);
+        glEnableVertexAttribArray(uniform_loc);
         v_att_offest += 3;
+        uniform_loc++;
     }
     if(enableTexcoord){
-        glVertexAttribPointer(TEX_LOC,2,GL_FLOAT, GL_FALSE,
+        glVertexAttribPointer(uniform_loc,2,GL_FLOAT, GL_FALSE,
                               strip*sizeof(GL_FLOAT),
                               (GLvoid*)(v_att_offest * sizeof(GLfloat)));
-        glEnableVertexAttribArray(TEX_LOC);
+        glEnableVertexAttribArray(uniform_loc);
         v_att_offest += 2;
+        uniform_loc++;
+    }
+    if(enableNormal){
+        
+        glVertexAttribPointer(uniform_loc,3,GL_FLOAT,GL_FALSE,
+                              strip*sizeof(GL_FLOAT),
+                              (GLvoid *)(v_att_offest * sizeof(GLfloat)));
+        glEnableVertexAttribArray(uniform_loc);
+        //printf("Nor_loc:%d,v_att_offest:%d\n",NOR_LOC,v_att_offest);
+        printf("uniform_loc:%d\n",uniform_loc);
+        v_att_offest += 3;
+        uniform_loc++;
     }
     glBindBuffer(GL_ARRAY_BUFFER,0);
     
