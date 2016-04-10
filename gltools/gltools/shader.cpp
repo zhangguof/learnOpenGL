@@ -120,6 +120,13 @@ void Shader::setUniform3f(const char *var_name, GLfloat x, GLfloat y, GLfloat z)
     glUniform3f(loc,x,y,z);
     
 }
+void Shader::setUniform1f(const char* var_name,GLfloat x)
+{
+    GLint loc = get_unifrom_loc(var_name);
+    if(loc >= 0)
+        glUniform1f(loc,x);
+    
+}
 void Shader::setUniformMatrix4fv(const char* var_name, const GLfloat * mat4)
 {
     GLint loc = get_unifrom_loc(var_name);

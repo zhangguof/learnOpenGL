@@ -29,6 +29,7 @@ public:
     //glUniformMatrix4fv
     
     void setUniformMatrix4fv(const char* var_name,const GLfloat *mat4);
+    void setUniform1f(const char* var_name,GLfloat x);
     Shader(const GLchar *vertextSrcPath, const GLchar *fragmentSrcPath);
     void Use();
 };
