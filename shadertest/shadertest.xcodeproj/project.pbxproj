@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EAB3C2181CBA8E51003F4182 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB3C2171CBA8E51003F4182 /* GLKit.framework */; };
 		EAF323691CA03B9E00831A26 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EAF323671CA03B9E00831A26 /* shader.cpp */; };
 		EAF323721CA03D7F00831A26 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF3236A1CA03D7F00831A26 /* Cocoa.framework */; };
 		EAF323731CA03D7F00831A26 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF3236B1CA03D7F00831A26 /* IOKit.framework */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EAB3C2171CBA8E51003F4182 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		EAF323531C9F11A000831A26 /* shadertest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shadertest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF323611C9F11A000831A26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAF323671CA03B9E00831A26 /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB3C2181CBA8E51003F4182 /* GLKit.framework in Frameworks */,
 				EAF323751CA03D7F00831A26 /* CoreFoundation.framework in Frameworks */,
 				EAF323781CA03D7F00831A26 /* libglfw3.a in Frameworks */,
 				EAF323721CA03D7F00831A26 /* Cocoa.framework in Frameworks */,
@@ -93,6 +96,7 @@
 		EAF323711CA03D7F00831A26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAB3C2171CBA8E51003F4182 /* GLKit.framework */,
 				EAF3236A1CA03D7F00831A26 /* Cocoa.framework */,
 				EAF3236B1CA03D7F00831A26 /* IOKit.framework */,
 				EAF3236C1CA03D7F00831A26 /* CoreVideo.framework */,

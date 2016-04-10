@@ -332,10 +332,26 @@ int main(int argc, char **argv)
         
         pshader->Use();
         //color
-        pshader->setUniform3f("objectColor", 1.0f, 1.0f, 1.0f);
-        pshader->setUniform3f("lightColor", 1.0f, 0.5f, 0.31f);
+        //pshader->setUniform3f("objectColor", 1.0f, 1.0f, 1.0f);
+//        pshader->setUniform3f("material.ambient", 1.0f, 0.5f, 0.31f);
+//        pshader->setUniform3f("material.diffuse", 1.0f, 0.5f, 0.31f);
+//        pshader->setUniform3f("material.specular", 0.5f, 0.5f, 0.5f);
+//        pshader->setUniform1f("material.shininess", 32.0f);
+//        pshader->setUniform3f("lightColor", 1.0f, 1.0f, 1.0f);
+        pshader->setUniform3f("material.ambient", 0.0f, 0.1f, 0.06f);
+        pshader->setUniform3f("material.diffuse", 0.0f, 0.50980392f, 0.50980392f);
+        pshader->setUniform3f("material.specular", 0.50196078f, 0.50196078f, 0.50196078f);
+        pshader->setUniform1f("material.shininess", 32.0f);
+        
+        //light
+//        pshader->setUniform3f("light.ambient", 0.2f,0.2f, 0.2f);
+//        pshader->setUniform3f("light.diffuse", 0.5f, 0.5f, 0.5f);
+//        pshader->setUniform3f("light.specular", 1.0f, 1.0f, 1.0f);
+        pshader->setUniform3f("light.ambient", 1.0f, 1.0f, 1.0f);
+        pshader->setUniform3f("light.diffuse", 1.0f, 1.0f, 1.0f);
+        pshader->setUniform3f("light.specular", 1.0f, 1.0f, 1.0f);
         //pos
-        pshader->setUniform3f("lightPos", light_pos.x, light_pos.y, light_pos.z);
+        pshader->setUniform3f("light.position", light_pos.x, light_pos.y, light_pos.z);
         pshader->setUniform3f("viewPos", cam_pos.x, cam_pos.y, cam_pos.z);
         
         
