@@ -137,3 +137,13 @@ void Shader::setUniformMatrix4fv(const char* var_name, const GLfloat * mat4)
     
 }
 
+void Shader::setUniform1i(const char* var_name, GLint v)
+{
+    GLint loc = get_unifrom_loc(var_name);
+    if(loc >= 0)
+    {
+        glUniform1i(loc,v);
+    }
+    
+}
+
