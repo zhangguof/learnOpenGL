@@ -152,53 +152,49 @@ Shader *plightshader;
 void init_render()
 {
     GLfloat vertices[] = {
-        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-        
-        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-        0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-        
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-        
-        0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-        
-        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-        0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-        0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-        0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-        
-        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-        0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
-    };
+    // Positions           // Texture Coords     // Normals        
+    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,   0.0f,  0.0f, -1.0f,
+     0.5f, -0.5f, -0.5f,  1.0f, 0.0f,   0.0f,  0.0f, -1.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,   0.0f,  0.0f, -1.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,   0.0f,  0.0f, -1.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,   0.0f,  0.0f, -1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,   0.0f,  0.0f, -1.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,   0.0f,  0.0f, 1.0f, 
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,   0.0f,  0.0f, 1.0f, 
+     0.5f,  0.5f,  0.5f,  1.0f, 1.0f,   0.0f,  0.0f, 1.0f, 
+     0.5f,  0.5f,  0.5f,  1.0f, 1.0f,   0.0f,  0.0f, 1.0f, 
+    -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,   0.0f,  0.0f, 1.0f, 
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,   0.0f,  0.0f, 1.0f, 
+    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,  -1.0f,  0.0f,  0.0f,
+    -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,  -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,  -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,  -1.0f,  0.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,  -1.0f,  0.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,   1.0f,  0.0f,  0.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,   1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, 1.0f,   1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, 1.0f,   1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, 0.0f,   1.0f,  0.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,   1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,   0.0f, -1.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  1.0f, 1.0f,   0.0f, -1.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,   0.0f, -1.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,   0.0f, -1.0f,  0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,   0.0f, -1.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,   0.0f, -1.0f,  0.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,   0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,   0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,   0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,   0.0f,  1.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,   0.0f,  1.0f,  0.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,   0.0f,  1.0f,  0.0f,
+};
     
     
     
     vao = new VAO();
-    vbo = new VBO(vertices,36,GL_STATIC_DRAW,GL_FALSE,GL_FALSE,GL_TRUE);
+    vbo = new VBO(vertices,36,GL_STATIC_DRAW,GL_FALSE,GL_TRUE,GL_TRUE);
     
 //    vao1 = new VAO();
 //    vbo1 = new VBO(vertices1,6,GL_STATIC_DRAW,GL_FALSE,GL_FALSE,GL_TRUE);
@@ -267,7 +263,7 @@ int main(int argc, char **argv)
     init_callback(window);
     
     init_render();
-    pshader = new Shader("shader/vertex.glsl","shader/fragment.glsl");
+    pshader = new Shader("shader/lightmap.vert","shader/lightmap.frag");
     
     plightshader = new Shader("shader/vertex.glsl","shader/light_frag.glsl");
     
@@ -276,9 +272,9 @@ int main(int argc, char **argv)
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     //texture
-    //TEXTURE texture("res/container.jpg");
+    TEXTURE texture("res/container2.png");
     
-    //TEXTURE texture2("res/awesomeface.png");
+    TEXTURE texture2("res/container2_specular.png");
     
     //matrix
     
@@ -333,23 +329,22 @@ int main(int argc, char **argv)
         pshader->Use();
         //color
         //pshader->setUniform3f("objectColor", 1.0f, 1.0f, 1.0f);
-//        pshader->setUniform3f("material.ambient", 1.0f, 0.5f, 0.31f);
-//        pshader->setUniform3f("material.diffuse", 1.0f, 0.5f, 0.31f);
-//        pshader->setUniform3f("material.specular", 0.5f, 0.5f, 0.5f);
-//        pshader->setUniform1f("material.shininess", 32.0f);
-//        pshader->setUniform3f("lightColor", 1.0f, 1.0f, 1.0f);
-        pshader->setUniform3f("material.ambient", 0.0f, 0.1f, 0.06f);
-        pshader->setUniform3f("material.diffuse", 0.0f, 0.50980392f, 0.50980392f);
-        pshader->setUniform3f("material.specular", 0.50196078f, 0.50196078f, 0.50196078f);
+        texture.use();
+        pshader->setUniform1i("material.diffuse",0);
+        texture2.use(GL_TEXTURE1);
+        
+        //pshader->setUniform3f("material.specular", 0.5f, 0.5f, 0.5f);
+        pshader->setUniform1i("material.specular", 1);
         pshader->setUniform1f("material.shininess", 32.0f);
+
         
         //light
-//        pshader->setUniform3f("light.ambient", 0.2f,0.2f, 0.2f);
-//        pshader->setUniform3f("light.diffuse", 0.5f, 0.5f, 0.5f);
-//        pshader->setUniform3f("light.specular", 1.0f, 1.0f, 1.0f);
-        pshader->setUniform3f("light.ambient", 1.0f, 1.0f, 1.0f);
-        pshader->setUniform3f("light.diffuse", 1.0f, 1.0f, 1.0f);
+        pshader->setUniform3f("light.ambient", 0.2f,0.2f, 0.2f);
+        pshader->setUniform3f("light.diffuse", 0.5f, 0.5f, 0.5f);
         pshader->setUniform3f("light.specular", 1.0f, 1.0f, 1.0f);
+//        pshader->setUniform3f("light.ambient", 1.0f, 1.0f, 1.0f);
+//        pshader->setUniform3f("light.diffuse", 1.0f, 1.0f, 1.0f);
+//        pshader->setUniform3f("light.specular", 1.0f, 1.0f, 1.0f);
         //pos
         pshader->setUniform3f("light.position", light_pos.x, light_pos.y, light_pos.z);
         pshader->setUniform3f("viewPos", cam_pos.x, cam_pos.y, cam_pos.z);
