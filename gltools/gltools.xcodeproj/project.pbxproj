@@ -26,6 +26,8 @@
 		EA9549861CB11E46007F27F0 /* gltools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA9549511CB003C2007F27F0 /* gltools.cpp */; };
 		EA9549871CB11E48007F27F0 /* shader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EA9549681CB00512007F27F0 /* shader.hpp */; };
 		EA9549881CB11E4B007F27F0 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA9549671CB00512007F27F0 /* shader.cpp */; };
+		EAB3C21C1CBD61D8003F4182 /* libassimp.3.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB3C21B1CBD61D8003F4182 /* libassimp.3.1.1.dylib */; };
+		EAB3C21D1CBD61D8003F4182 /* libassimp.3.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB3C21B1CBD61D8003F4182 /* libassimp.3.1.1.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,7 @@
 		EA9549701CB10C7E007F27F0 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
 		EA9549761CB11AF0007F27F0 /* liblibgltool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibgltool.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA95497E1CB11B67007F27F0 /* libgltool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgltool.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB3C21B1CBD61D8003F4182 /* libassimp.3.1.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.3.1.1.dylib; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libassimp.3.1.1.dylib; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 				EA9549621CB00419007F27F0 /* CoreFoundation.framework in Frameworks */,
 				EA95495F1CB00419007F27F0 /* Cocoa.framework in Frameworks */,
 				EA9549651CB00419007F27F0 /* libSOIL.a in Frameworks */,
+				EAB3C21C1CBD61D8003F4182 /* libassimp.3.1.1.dylib in Frameworks */,
 				EA9549661CB00419007F27F0 /* libglfw3.a in Frameworks */,
 				EA9549641CB00419007F27F0 /* libglew.a in Frameworks */,
 				EA9549601CB00419007F27F0 /* IOKit.framework in Frameworks */,
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB3C21D1CBD61D8003F4182 /* libassimp.3.1.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +137,7 @@
 		EA95495E1CB00418007F27F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EAB3C21B1CBD61D8003F4182 /* libassimp.3.1.1.dylib */,
 				EA9549561CB00418007F27F0 /* Cocoa.framework */,
 				EA9549571CB00418007F27F0 /* IOKit.framework */,
 				EA9549581CB00418007F27F0 /* CoreVideo.framework */,
@@ -479,6 +485,7 @@
 				EA9549791CB11AF0007F27F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA95497F1CB11B67007F27F0 /* Build configuration list for PBXNativeTarget "gltool" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +494,7 @@
 				EA9549811CB11B67007F27F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

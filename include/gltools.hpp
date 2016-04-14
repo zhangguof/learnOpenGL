@@ -125,8 +125,8 @@ public:
 };
 
 class TEXTURE{
-    GLuint texture;
 public:
+    GLuint texture;
     TEXTURE(const char * filename){
         int w,h;
         unsigned char* image = SOIL_load_image(filename,&w,&h,0,SOIL_LOAD_RGB);
