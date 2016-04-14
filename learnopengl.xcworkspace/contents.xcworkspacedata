@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:modelload/modelload.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:gltools/gltools.xcodeproj">
    </FileRef>
    <FileRef
