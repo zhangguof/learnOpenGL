@@ -236,7 +236,7 @@ void update_matrix(Shader *ps,glm::mat4 &model,glm::mat4 &view,
 {
     //matrix
     
-    ps->setUniformMatrix4fv("model", glm::value_ptr(model));
+    //ps->setUniformMatrix4fv("model", glm::value_ptr(model));
     
     view = g_camera.GetViewMatrix();
     ps->setUniformMatrix4fv("view", glm::value_ptr(view));
@@ -247,6 +247,8 @@ void update_matrix(Shader *ps,glm::mat4 &model,glm::mat4 &view,
     ps->setUniformMatrix4fv("projection", glm::value_ptr(projection));
     
 }
+
+
 
 
 
@@ -297,6 +299,19 @@ int main(int argc, char **argv)
     
     update_mgr.push(do_movemen);
     
+    glm::vec3 cubePositions[] = {
+        glm::vec3( 0.0f,  0.0f,  0.0f),
+        glm::vec3( 2.0f,  5.0f, -15.0f),
+        glm::vec3(-1.5f, -2.2f, -2.5f),
+        glm::vec3(-3.8f, -2.0f, -12.3f),
+        glm::vec3( 2.4f, -0.4f, -3.5f),
+        glm::vec3(-1.7f,  3.0f, -7.5f),
+        glm::vec3( 1.3f, -2.0f, -2.5f),
+        glm::vec3( 1.5f,  2.0f, -2.5f),
+        glm::vec3( 1.5f,  0.2f, -1.5f),
+        glm::vec3(-1.3f,  1.0f, -1.5f)  
+    };
+    
     
     while (!glfwWindowShouldClose(window)) {
         GLfloat curTime = glfwGetTime();
@@ -346,19 +361,35 @@ int main(int argc, char **argv)
 //        pshader->setUniform3f("light.diffuse", 1.0f, 1.0f, 1.0f);
 //        pshader->setUniform3f("light.specular", 1.0f, 1.0f, 1.0f);
         //pos
-        pshader->setUniform3f("light.position", light_pos.x, light_pos.y, light_pos.z);
+        //pshader->setUniform3f("light.position", light_pos.x, light_pos.y, light_pos.z);
+        pshader->setUniform3f("light.direction",-0.2f,-1.0f,-0.3f);
         pshader->setUniform3f("viewPos", cam_pos.x, cam_pos.y, cam_pos.z);
         
         
-        //matrix
-        update_matrix(pshader,model,view,projection);
+
         
+        
+        //draw box
         
         
         vao->enable();
+        update_matrix(pshader,model,view,projection);
+        for(int i=0;i<10;i++)
+        {
+            model = glm::translate(imatirx, cubePositions[i]);
+            GLfloat t = glfwGetTime();
+            GLfloat angle = 20.0f * i * t;
+            model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f,0.3f,0.5f));
+            pshader->setUniformMatrix4fv("model", glm::value_ptr(model));
+            //matrix
+            
+            glDrawArrays(GL_TRIANGLES, 0, 36);
+            //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+            
+        }
         
-        glDrawArrays(GL_TRIANGLES, 0, 36);
-        //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        
+
         vao->disable();
 
         //draw light
