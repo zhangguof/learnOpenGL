@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:build/depthtest/depthtest.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:modelload/modelload.xcodeproj">
    </FileRef>
    <FileRef
