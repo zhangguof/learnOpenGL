@@ -13,6 +13,8 @@
 #include <gltools.hpp>
 #include "Mesh.hpp"
 #include <vector>
+#include <map>
+#include <unordered_map>
 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
@@ -25,6 +27,9 @@ public:
     {
         loadModel(path);
     }
+    Model(GLfloat vertexs[],int count,string p1,string p2){
+        loadSimpleModel(vertexs, count, p1, p2);
+    }
     void Draw(Shader shader)
     {
         for(GLuint i=0;i<meshes.size();i++)
@@ -35,6 +40,9 @@ public:
 private:
     vector<Mesh> meshes;
     string directory;
+    //map<string,Texture> texture_loaded;
+    unordered_map<string, Texture> texture_loaded;
+    
     
     void loadModel(string path)
     {
@@ -46,6 +54,42 @@ private:
         }
         directory = path.substr(0,path.find_last_of("/"));
         this->processNode(scene->mRootNode, scene);
+    }
+    
+    void loadSimpleModel(GLfloat vertexs[],int count,string texture_diffuse_path,string texture_specular_path){
+        vector<Vertex> vers;
+        vector<GLuint> indices;
+        vector<Texture> textures;
+        directory = "res";
+        int c=0;
+        while(c<count)
+        {
+            Vertex v;
+            int i = c<<3;
+            v.Postion = glm::vec3(vertexs[i],vertexs[i+1],vertexs[i+2]);
+            v.Normal = glm::vec3(vertexs[i+3],vertexs[i+4],vertexs[i+5]);
+            v.TexCoords = glm::vec2(vertexs[i+6],vertexs[i+7]);
+            vers.push_back(v);
+            c++;
+        }
+        Texture t1,t2;
+        t1.id = TEXTURE(texture_diffuse_path.c_str()).texture;
+        t1.type = "texture_diffuse";
+        t1.path = texture_diffuse_path;
+        
+        t2.id = TEXTURE(texture_specular_path.c_str()).texture;
+        t2.type = "texture_specular";
+        t2.path = texture_specular_path;
+        
+        textures.push_back(t1);
+        textures.push_back(t2);
+        
+        
+        Mesh m1(vers,indices,textures);
+        meshes.push_back(m1);
+    
+        
+        
     }
     void processNode(aiNode* node, const aiScene* scene)
     {
@@ -124,12 +168,25 @@ private:
         {
             aiString str;
             mat->GetTexture(type, i, &str);
-            Texture texture;
-            string t_path = directory+"/"+str.C_Str();
-            texture.id = TEXTURE(t_path.c_str()).texture;
-            texture.type = typeName;
-            texture.path = str;
-            textures.push_back(texture);
+            const char* filename = str.C_Str();
+            auto  t = texture_loaded.find(filename);
+            
+            if(t == texture_loaded.end())
+            {
+                Texture texture;
+                string t_path = directory+"/"+filename;
+                texture.id = TEXTURE(t_path.c_str()).texture;
+                texture.type = typeName;
+                texture.path = str;
+                textures.push_back(texture);
+                texture_loaded[filename] = texture;
+                printf("load texutre:%s\n",filename);
+                continue;
+                
+            }
+            textures.push_back(t->second);
+            printf("skip loaded texutre: %s\n",filename);
+
             
         }
         return textures;

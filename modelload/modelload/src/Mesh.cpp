@@ -47,8 +47,17 @@ void Mesh::Draw(Shader shader){
     
     //Draw
     glBindVertexArray(VAO);
+    if(indices.size())
+    {
+        glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+    }
+    else
+    {
+        glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+    }
+    
 
-    glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+    
     glBindVertexArray(0);
     
     for(GLuint i=0; i < textures.size();i++)
@@ -70,9 +79,13 @@ void Mesh::setupMesh(){
     glBufferData(GL_ARRAY_BUFFER,vertices.size()*sizeof(Vertex),
                  &this->vertices[0],GL_STATIC_DRAW);
     
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER,indices.size() * sizeof(GLuint),
-                 &this->indices[0],GL_STATIC_DRAW);
+    if (indices.size() > 0)
+    {
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,EBO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER,indices.size() * sizeof(GLuint),
+                     &this->indices[0],GL_STATIC_DRAW);
+    }
+
     
     
     //postion

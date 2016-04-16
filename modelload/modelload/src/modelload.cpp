@@ -260,6 +260,7 @@ int main(int argc, char **argv)
     init_callback(window);
     
     pmdole = new Model("res/nanosuit/nanosuit.obj");
+    //pmdole = new Model("res/Miku/miku/gmiku.FBX");
     
     init_render();
     pshader = new Shader("shader/lightmap.vert","shader/lightmap2.frag");
