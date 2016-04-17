@@ -149,7 +149,8 @@ Shader *pshader;
 VAO *light_vao;
 VBO *light_vbo;
 Shader *plightshader;
-Model * pmdole;
+Model *pCube;
+Model *pPlane;
 
 void init_render()
 {
@@ -194,17 +195,65 @@ void init_render()
         -0.5f,  0.5f, -0.5f,   0.0f,  1.0f,  0.0f, 0.0f, 1.0f,
     };
     
-    pmdole = new Model(vertices,36,"res/container2.png","res/container2_specular.png");
+    GLfloat cubeVertices[] = {
+        // Positions          // Texture Coords
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+        0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+        
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        
+        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+    };
     
+    GLfloat planeVertices[] = {
+        // Positions            // Texture Coords (note we set these higher than 1 that together with GL_REPEAT as texture wrapping mode will cause the floor texture to repeat)
+        5.0f,  -0.5f,  5.0f,  2.0f, 0.0f,
+        -5.0f, -0.5f,  5.0f,  0.0f, 0.0f,
+        -5.0f, -0.5f, -5.0f,  0.0f, 2.0f,
+        
+        5.0f,  -0.5f,  5.0f,  2.0f, 0.0f,
+        -5.0f, -0.5f, -5.0f,  0.0f, 2.0f,
+        5.0f,  -0.5f, -5.0f,  2.0f, 2.0f
+    };
     
-//    vao = new VAO();
-//    vbo = new VBO(vertices,36,GL_STATIC_DRAW,GL_FALSE,GL_TRUE,GL_TRUE);
-//    
-//    //    vao1 = new VAO();
-//    //    vbo1 = new VBO(vertices1,6,GL_STATIC_DRAW,GL_FALSE,GL_FALSE,GL_TRUE);
-//    
-//    //ebo = new EBO(indices,6);
-//    vao->add_vbo(*vbo);
+    //pmdole = new Model(vertices,36,"res/container2.png","res/container2_specular.png");
+    pCube = new Model(cubeVertices,36,"res/marble.jpg","",GL_FALSE);
+    pPlane = new Model(planeVertices,6,"res/metal.png","",GL_FALSE);
     
 }
 
@@ -270,6 +319,7 @@ int main(int argc, char **argv)
     //plightshader = new Shader("shader/vertex.glsl","shader/light_frag.glsl");
     
     glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_ALWAYS);
     
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
@@ -355,7 +405,8 @@ int main(int argc, char **argv)
         //draw box
         update_matrix(pshader,model,view,projection);
         
-        pmdole->Draw(*pshader);
+        pCube->Draw(*pshader);
+        pPlane->Draw(*pshader);
         
         
         //vao->enable();
