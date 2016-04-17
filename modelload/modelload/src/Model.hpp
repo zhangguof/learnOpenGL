@@ -27,8 +27,8 @@ public:
     {
         loadModel(path);
     }
-    Model(GLfloat vertexs[],int count,string p1,string p2){
-        loadSimpleModel(vertexs, count, p1, p2);
+    Model(GLfloat vertexs[],int count,string p1,string p2="",GLboolean use_normal=GL_TRUE){
+        loadSimpleModel(vertexs, count, p1, p2,use_normal);
     }
     void Draw(Shader shader)
     {
@@ -56,19 +56,27 @@ private:
         this->processNode(scene->mRootNode, scene);
     }
     
-    void loadSimpleModel(GLfloat vertexs[],int count,string texture_diffuse_path,string texture_specular_path){
+    void loadSimpleModel(GLfloat vertexs[],int count,string texture_diffuse_path,
+                         string texture_specular_path="",GLboolean use_normal=GL_TRUE){
         vector<Vertex> vers;
         vector<GLuint> indices;
         vector<Texture> textures;
         directory = "res";
         int c=0;
+        int normal_offest = 3;
+        int texcoord_offest = 6;
+        if(!use_normal){
+            texcoord_offest = 3;
+        }
         while(c<count)
         {
             Vertex v;
-            int i = c<<3;
-            v.Postion = glm::vec3(vertexs[i],vertexs[i+1],vertexs[i+2]);
-            v.Normal = glm::vec3(vertexs[i+3],vertexs[i+4],vertexs[i+5]);
-            v.TexCoords = glm::vec2(vertexs[i+6],vertexs[i+7]);
+            int pi = use_normal?c<<3:c*5;
+            int ni = pi+normal_offest;
+            int ti = pi+texcoord_offest;
+            v.Postion = glm::vec3(vertexs[pi],vertexs[pi+1],vertexs[pi+2]);
+            v.Normal = use_normal?glm::vec3(vertexs[ni],vertexs[ni+1],vertexs[ni+2]):glm::vec3(1.0f);
+            v.TexCoords = glm::vec2(vertexs[ti],vertexs[ti+1]);
             vers.push_back(v);
             c++;
         }
@@ -76,13 +84,15 @@ private:
         t1.id = TEXTURE(texture_diffuse_path.c_str()).texture;
         t1.type = "texture_diffuse";
         t1.path = texture_diffuse_path;
-        
-        t2.id = TEXTURE(texture_specular_path.c_str()).texture;
-        t2.type = "texture_specular";
-        t2.path = texture_specular_path;
-        
         textures.push_back(t1);
-        textures.push_back(t2);
+        
+        if(texture_specular_path!=""){
+            t2.id = TEXTURE(texture_specular_path.c_str()).texture;
+            t2.type = "texture_specular";
+            t2.path = texture_specular_path;
+            textures.push_back(t2);
+        }
+
         
         
         Mesh m1(vers,indices,textures);
