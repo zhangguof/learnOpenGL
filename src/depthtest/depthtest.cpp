@@ -319,7 +319,7 @@ int main(int argc, char **argv)
     //plightshader = new Shader("shader/vertex.glsl","shader/light_frag.glsl");
     
     glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_ALWAYS);
+    glDepthFunc(GL_LESS);
     
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
@@ -403,9 +403,16 @@ int main(int argc, char **argv)
         
         
         //draw box
+        model = glm::translate(imatirx, glm::vec3(-1.0f, 0.0f, -0.5f));
         update_matrix(pshader,model,view,projection);
-        
         pCube->Draw(*pshader);
+        
+        model = glm::translate(imatirx, glm::vec3(-0.25f, 0.0f, -2.0f));
+        update_matrix(pshader, model, view, projection);
+        pCube->Draw(*pshader);
+        
+        model = imatirx;
+        update_matrix(pshader, model, view, projection);
         pPlane->Draw(*pshader);
         
         

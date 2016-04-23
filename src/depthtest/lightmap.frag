@@ -30,6 +30,15 @@ in vec2 TexCoords;
 out vec4 color;
 
 uniform vec3 viewPos;
+
+float LinearizeDepth(float depth)
+{
+    float near = 0.1;
+    float far = 100.0;
+    float z = depth * 2.0 - 1.0f;//back to NDC
+    return (2.0 * near) / (far + near - z * (far - near));
+}
+
 void main()
 {
     //ambien
@@ -54,4 +63,7 @@ void main()
     vec3 result = ambient + diffuse + specular;
     //color = vec4(1.0f,0.0f,0.0f,1.0f);
     color = vec4(result,1.0f);
+    float depth = LinearizeDepth(gl_FragCoord.z);
+    gl_FragDepth = depth;
+    //color = vec4(vec3(depth),1.0f);
 }
