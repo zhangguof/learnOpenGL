@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "gltools.hpp"
+#include "input.h"
 
 const int win_width=640,win_height=480;
 

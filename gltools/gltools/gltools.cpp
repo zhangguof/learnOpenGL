@@ -8,6 +8,7 @@
 
 #include "gltools.hpp"
 #include <GLFW/glfw3.h>
+#include "Model.hpp"
 
 GLFWwindow* create_window(int width, int height,
                    const char *titile, GLFWmonitor *monitor, GLFWwindow* share){

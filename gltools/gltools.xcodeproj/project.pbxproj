@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA94A0031CCBB3D4008D41DE /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA949FFF1CCBB3D4008D41DE /* Mesh.cpp */; };
+		EA94A0041CCBB3D4008D41DE /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA94A0011CCBB3D4008D41DE /* Model.cpp */; };
+		EA94A0051CCBB79D008D41DE /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA949FFF1CCBB3D4008D41DE /* Mesh.cpp */; };
+		EA94A0061CCBB7A2008D41DE /* Mesh.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EA94A0001CCBB3D4008D41DE /* Mesh.hpp */; };
+		EA94A0071CCBB7A5008D41DE /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA94A0011CCBB3D4008D41DE /* Model.cpp */; };
+		EA94A0081CCBB7A8008D41DE /* Model.hpp in Headers */ = {isa = PBXBuildFile; fileRef = EA94A0021CCBB3D4008D41DE /* Model.hpp */; };
+		EA94A0141CCBEB25008D41DE /* input.h in Headers */ = {isa = PBXBuildFile; fileRef = EA94A0131CCBEB25008D41DE /* input.h */; };
 		EA9549531CB003C2007F27F0 /* gltools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA9549511CB003C2007F27F0 /* gltools.cpp */; };
 		EA9549551CB003EA007F27F0 /* example.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA9549541CB003EA007F27F0 /* example.cpp */; };
 		EA95495F1CB00419007F27F0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9549561CB00418007F27F0 /* Cocoa.framework */; };
@@ -31,6 +38,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA949FFF1CCBB3D4008D41DE /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mesh.cpp; path = /Users/tony/workspace/xcodeProject/learnOpenGL/build/depthtest/../../modelload/modelload/src/Mesh.cpp; sourceTree = "<absolute>"; };
+		EA94A0001CCBB3D4008D41DE /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Mesh.hpp; path = /Users/tony/workspace/xcodeProject/learnOpenGL/build/depthtest/../../modelload/modelload/src/Mesh.hpp; sourceTree = "<absolute>"; };
+		EA94A0011CCBB3D4008D41DE /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = /Users/tony/workspace/xcodeProject/learnOpenGL/build/depthtest/../../modelload/modelload/src/Model.cpp; sourceTree = "<absolute>"; };
+		EA94A0021CCBB3D4008D41DE /* Model.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Model.hpp; path = /Users/tony/workspace/xcodeProject/learnOpenGL/build/depthtest/../../modelload/modelload/src/Model.hpp; sourceTree = "<absolute>"; };
+		EA94A0131CCBEB25008D41DE /* input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = input.h; path = ../../include/input.h; sourceTree = "<group>"; };
 		EA95493D1CB00180007F27F0 /* gltools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gltools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA95494B1CB00180007F27F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA9549511CB003C2007F27F0 /* gltools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gltools.cpp; sourceTree = "<group>"; };
@@ -125,6 +137,11 @@
 		EA9549431CB00180007F27F0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA949FFF1CCBB3D4008D41DE /* Mesh.cpp */,
+				EA94A0001CCBB3D4008D41DE /* Mesh.hpp */,
+				EA94A0011CCBB3D4008D41DE /* Model.cpp */,
+				EA94A0021CCBB3D4008D41DE /* Model.hpp */,
+				EA94A0131CCBEB25008D41DE /* input.h */,
 				EA9549671CB00512007F27F0 /* shader.cpp */,
 				EA9549681CB00512007F27F0 /* shader.hpp */,
 				EA9549511CB003C2007F27F0 /* gltools.cpp */,
@@ -158,6 +175,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA94A0141CCBEB25008D41DE /* input.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +183,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA94A0081CCBB7A8008D41DE /* Model.hpp in Headers */,
 				EA9549851CB11E41007F27F0 /* gltools.hpp in Headers */,
+				EA94A0061CCBB7A2008D41DE /* Mesh.hpp in Headers */,
 				EA9549871CB11E48007F27F0 /* shader.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +305,8 @@
 			files = (
 				EA9549691CB00512007F27F0 /* shader.cpp in Sources */,
 				EA9549551CB003EA007F27F0 /* example.cpp in Sources */,
+				EA94A0041CCBB3D4008D41DE /* Model.cpp in Sources */,
+				EA94A0031CCBB3D4008D41DE /* Mesh.cpp in Sources */,
 				EA9549531CB003C2007F27F0 /* gltools.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,8 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA94A0051CCBB79D008D41DE /* Mesh.cpp in Sources */,
 				EA9549881CB11E4B007F27F0 /* shader.cpp in Sources */,
 				EA9549861CB11E46007F27F0 /* gltools.cpp in Sources */,
+				EA94A0071CCBB7A5008D41DE /* Model.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
