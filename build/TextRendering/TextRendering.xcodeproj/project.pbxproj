@@ -1,0 +1,320 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA949FE81CCBB298008D41DE /* textRendering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EA949FE61CCBB298008D41DE /* textRendering.cpp */; };
+		EA949FF51CCBB2D8008D41DE /* libassimp.3.1.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FEA1CCBB2D8008D41DE /* libassimp.3.1.1.dylib */; };
+		EA949FF61CCBB2D8008D41DE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FEB1CCBB2D8008D41DE /* Cocoa.framework */; };
+		EA949FF71CCBB2D8008D41DE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FEC1CCBB2D8008D41DE /* IOKit.framework */; };
+		EA949FF81CCBB2D8008D41DE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FED1CCBB2D8008D41DE /* CoreVideo.framework */; };
+		EA949FF91CCBB2D8008D41DE /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FEE1CCBB2D8008D41DE /* CoreFoundation.framework */; };
+		EA949FFA1CCBB2D8008D41DE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FEF1CCBB2D8008D41DE /* OpenGL.framework */; };
+		EA949FFB1CCBB2D8008D41DE /* libglew.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FF01CCBB2D8008D41DE /* libglew.a */; };
+		EA949FFC1CCBB2D8008D41DE /* libgltool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FF11CCBB2D8008D41DE /* libgltool.a */; };
+		EA949FFD1CCBB2D8008D41DE /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FF21CCBB2D8008D41DE /* libSOIL.a */; };
+		EA949FFE1CCBB2D8008D41DE /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FF31CCBB2D8008D41DE /* libglfw3.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EA949FD21CCBB22B008D41DE /* TextRendering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextRendering.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA949FE01CCBB22B008D41DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA949FE61CCBB298008D41DE /* textRendering.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = textRendering.cpp; path = ../../../src/TextRendering/textRendering.cpp; sourceTree = "<group>"; };
+		EA949FE71CCBB298008D41DE /* textRendering.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = textRendering.hpp; path = ../../../src/TextRendering/textRendering.hpp; sourceTree = "<group>"; };
+		EA949FEA1CCBB2D8008D41DE /* libassimp.3.1.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.3.1.1.dylib; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libassimp.3.1.1.dylib; sourceTree = "<absolute>"; };
+		EA949FEB1CCBB2D8008D41DE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		EA949FEC1CCBB2D8008D41DE /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		EA949FED1CCBB2D8008D41DE /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
+		EA949FEE1CCBB2D8008D41DE /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		EA949FEF1CCBB2D8008D41DE /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		EA949FF01CCBB2D8008D41DE /* libglew.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglew.a; path = ../../libs/libglew.a; sourceTree = "<group>"; };
+		EA949FF11CCBB2D8008D41DE /* libgltool.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgltool.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libgltool.a; sourceTree = "<absolute>"; };
+		EA949FF21CCBB2D8008D41DE /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libSOIL.a; sourceTree = "<absolute>"; };
+		EA949FF31CCBB2D8008D41DE /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../libs/libglfw3.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA949FCF1CCBB22B008D41DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA949FF91CCBB2D8008D41DE /* CoreFoundation.framework in Frameworks */,
+				EA949FFE1CCBB2D8008D41DE /* libglfw3.a in Frameworks */,
+				EA949FF61CCBB2D8008D41DE /* Cocoa.framework in Frameworks */,
+				EA949FFD1CCBB2D8008D41DE /* libSOIL.a in Frameworks */,
+				EA949FFC1CCBB2D8008D41DE /* libgltool.a in Frameworks */,
+				EA949FF51CCBB2D8008D41DE /* libassimp.3.1.1.dylib in Frameworks */,
+				EA949FF71CCBB2D8008D41DE /* IOKit.framework in Frameworks */,
+				EA949FF81CCBB2D8008D41DE /* CoreVideo.framework in Frameworks */,
+				EA949FFA1CCBB2D8008D41DE /* OpenGL.framework in Frameworks */,
+				EA949FFB1CCBB2D8008D41DE /* libglew.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EA949FC91CCBB22B008D41DE = {
+			isa = PBXGroup;
+			children = (
+				EA949FF41CCBB2D8008D41DE /* Frameworks */,
+				EA949FD41CCBB22B008D41DE /* TextRendering */,
+				EA949FD31CCBB22B008D41DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA949FD31CCBB22B008D41DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA949FD21CCBB22B008D41DE /* TextRendering.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA949FD41CCBB22B008D41DE /* TextRendering */ = {
+			isa = PBXGroup;
+			children = (
+				EA949FE91CCBB29F008D41DE /* src */,
+				EA949FE01CCBB22B008D41DE /* Info.plist */,
+			);
+			path = TextRendering;
+			sourceTree = "<group>";
+		};
+		EA949FE91CCBB29F008D41DE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				EA949FE61CCBB298008D41DE /* textRendering.cpp */,
+				EA949FE71CCBB298008D41DE /* textRendering.hpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		EA949FF41CCBB2D8008D41DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA949FEA1CCBB2D8008D41DE /* libassimp.3.1.1.dylib */,
+				EA949FEB1CCBB2D8008D41DE /* Cocoa.framework */,
+				EA949FEC1CCBB2D8008D41DE /* IOKit.framework */,
+				EA949FED1CCBB2D8008D41DE /* CoreVideo.framework */,
+				EA949FEE1CCBB2D8008D41DE /* CoreFoundation.framework */,
+				EA949FEF1CCBB2D8008D41DE /* OpenGL.framework */,
+				EA949FF01CCBB2D8008D41DE /* libglew.a */,
+				EA949FF11CCBB2D8008D41DE /* libgltool.a */,
+				EA949FF21CCBB2D8008D41DE /* libSOIL.a */,
+				EA949FF31CCBB2D8008D41DE /* libglfw3.a */,
+			);
+			name = Frameworks;
+			path = /Users/tony/workspace/xcodeProject/learnOpenGL/shadertest/../firstTriangle/firstTriangle;
+			sourceTree = "<absolute>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA949FD11CCBB22B008D41DE /* TextRendering */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA949FE31CCBB22B008D41DE /* Build configuration list for PBXNativeTarget "TextRendering" */;
+			buildPhases = (
+				EA949FCE1CCBB22B008D41DE /* Sources */,
+				EA949FCF1CCBB22B008D41DE /* Frameworks */,
+				EA949FD01CCBB22B008D41DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TextRendering;
+			productName = TextRendering;
+			productReference = EA949FD21CCBB22B008D41DE /* TextRendering.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA949FCA1CCBB22B008D41DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = tony;
+				TargetAttributes = {
+					EA949FD11CCBB22B008D41DE = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = EA949FCD1CCBB22B008D41DE /* Build configuration list for PBXProject "TextRendering" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA949FC91CCBB22B008D41DE;
+			productRefGroup = EA949FD31CCBB22B008D41DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA949FD11CCBB22B008D41DE /* TextRendering */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA949FD01CCBB22B008D41DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA949FCE1CCBB22B008D41DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA949FE81CCBB298008D41DE /* textRendering.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EA949FE11CCBB22B008D41DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EA949FE21CCBB22B008D41DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EA949FE41CCBB22B008D41DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../include";
+				INFOPLIST_FILE = TextRendering/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../libs";
+				PRODUCT_BUNDLE_IDENTIFIER = zhang.TextRendering;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EA949FE51CCBB22B008D41DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../include";
+				INFOPLIST_FILE = TextRendering/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../libs";
+				PRODUCT_BUNDLE_IDENTIFIER = zhang.TextRendering;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA949FCD1CCBB22B008D41DE /* Build configuration list for PBXProject "TextRendering" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA949FE11CCBB22B008D41DE /* Debug */,
+				EA949FE21CCBB22B008D41DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA949FE31CCBB22B008D41DE /* Build configuration list for PBXNativeTarget "TextRendering" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA949FE41CCBB22B008D41DE /* Debug */,
+				EA949FE51CCBB22B008D41DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA949FCA1CCBB22B008D41DE /* Project object */;
+}
