@@ -18,6 +18,13 @@
 		EA949FFC1CCBB2D8008D41DE /* libgltool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FF11CCBB2D8008D41DE /* libgltool.a */; };
 		EA949FFD1CCBB2D8008D41DE /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FF21CCBB2D8008D41DE /* libSOIL.a */; };
 		EA949FFE1CCBB2D8008D41DE /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA949FF31CCBB2D8008D41DE /* libglfw3.a */; };
+		EA94A0161CCCA351008D41DE /* res in Resources */ = {isa = PBXBuildFile; fileRef = EA94A0151CCCA351008D41DE /* res */; };
+		EA94A0181CCCA6DA008D41DE /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA94A0171CCCA6DA008D41DE /* libfreetype.a */; };
+		EA94A01E1CCCA8FF008D41DE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EA94A01D1CCCA8FF008D41DE /* libz.tbd */; };
+		EA94A0201CCCA90C008D41DE /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EA94A01F1CCCA90C008D41DE /* libbz2.tbd */; };
+		EA94A0221CCCACEA008D41DE /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA94A0211CCCACEA008D41DE /* libpng16.a */; };
+		EA94A0261CCD0EFF008D41DE /* font.frag in Resources */ = {isa = PBXBuildFile; fileRef = EA94A0241CCD0EFF008D41DE /* font.frag */; };
+		EA94A0271CCD0EFF008D41DE /* font.vs in Resources */ = {isa = PBXBuildFile; fileRef = EA94A0251CCD0EFF008D41DE /* font.vs */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +42,13 @@
 		EA949FF11CCBB2D8008D41DE /* libgltool.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgltool.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libgltool.a; sourceTree = "<absolute>"; };
 		EA949FF21CCBB2D8008D41DE /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libSOIL.a; sourceTree = "<absolute>"; };
 		EA949FF31CCBB2D8008D41DE /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../libs/libglfw3.a; sourceTree = "<group>"; };
+		EA94A0151CCCA351008D41DE /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = /Users/tony/workspace/xcodeProject/learnOpenGL/camera/camera/../../res; sourceTree = "<absolute>"; };
+		EA94A0171CCCA6DA008D41DE /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libfreetype.a; sourceTree = "<absolute>"; };
+		EA94A01D1CCCA8FF008D41DE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		EA94A01F1CCCA90C008D41DE /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		EA94A0211CCCACEA008D41DE /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = /Users/tony/workspace/xcodeProject/learnOpenGL/libs/libpng16.a; sourceTree = "<absolute>"; };
+		EA94A0241CCD0EFF008D41DE /* font.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = font.frag; path = ../../../src/TextRendering/font.frag; sourceTree = "<group>"; };
+		EA94A0251CCD0EFF008D41DE /* font.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = font.vs; path = ../../../src/TextRendering/font.vs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,12 +56,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA94A0201CCCA90C008D41DE /* libbz2.tbd in Frameworks */,
+				EA94A01E1CCCA8FF008D41DE /* libz.tbd in Frameworks */,
 				EA949FF91CCBB2D8008D41DE /* CoreFoundation.framework in Frameworks */,
 				EA949FFE1CCBB2D8008D41DE /* libglfw3.a in Frameworks */,
 				EA949FF61CCBB2D8008D41DE /* Cocoa.framework in Frameworks */,
 				EA949FFD1CCBB2D8008D41DE /* libSOIL.a in Frameworks */,
+				EA94A0221CCCACEA008D41DE /* libpng16.a in Frameworks */,
 				EA949FFC1CCBB2D8008D41DE /* libgltool.a in Frameworks */,
 				EA949FF51CCBB2D8008D41DE /* libassimp.3.1.1.dylib in Frameworks */,
+				EA94A0181CCCA6DA008D41DE /* libfreetype.a in Frameworks */,
 				EA949FF71CCBB2D8008D41DE /* IOKit.framework in Frameworks */,
 				EA949FF81CCBB2D8008D41DE /* CoreVideo.framework in Frameworks */,
 				EA949FFA1CCBB2D8008D41DE /* OpenGL.framework in Frameworks */,
@@ -61,6 +79,7 @@
 		EA949FC91CCBB22B008D41DE = {
 			isa = PBXGroup;
 			children = (
+				EA94A0151CCCA351008D41DE /* res */,
 				EA949FF41CCBB2D8008D41DE /* Frameworks */,
 				EA949FD41CCBB22B008D41DE /* TextRendering */,
 				EA949FD31CCBB22B008D41DE /* Products */,
@@ -78,6 +97,7 @@
 		EA949FD41CCBB22B008D41DE /* TextRendering */ = {
 			isa = PBXGroup;
 			children = (
+				EA94A0231CCD0EE0008D41DE /* shader */,
 				EA949FE91CCBB29F008D41DE /* src */,
 				EA949FE01CCBB22B008D41DE /* Info.plist */,
 			);
@@ -96,7 +116,11 @@
 		EA949FF41CCBB2D8008D41DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA94A01F1CCCA90C008D41DE /* libbz2.tbd */,
+				EA94A01D1CCCA8FF008D41DE /* libz.tbd */,
+				EA94A0211CCCACEA008D41DE /* libpng16.a */,
 				EA949FEA1CCBB2D8008D41DE /* libassimp.3.1.1.dylib */,
+				EA94A0171CCCA6DA008D41DE /* libfreetype.a */,
 				EA949FEB1CCBB2D8008D41DE /* Cocoa.framework */,
 				EA949FEC1CCBB2D8008D41DE /* IOKit.framework */,
 				EA949FED1CCBB2D8008D41DE /* CoreVideo.framework */,
@@ -110,6 +134,15 @@
 			name = Frameworks;
 			path = /Users/tony/workspace/xcodeProject/learnOpenGL/shadertest/../firstTriangle/firstTriangle;
 			sourceTree = "<absolute>";
+		};
+		EA94A0231CCD0EE0008D41DE /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				EA94A0241CCD0EFF008D41DE /* font.frag */,
+				EA94A0251CCD0EFF008D41DE /* font.vs */,
+			);
+			name = shader;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -168,6 +201,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA94A0161CCCA351008D41DE /* res in Resources */,
+				EA94A0261CCD0EFF008D41DE /* font.frag in Resources */,
+				EA94A0271CCD0EFF008D41DE /* font.vs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +349,7 @@
 				EA949FE51CCBB22B008D41DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
